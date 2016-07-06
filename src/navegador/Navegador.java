@@ -21,6 +21,20 @@ public class Navegador extends javax.swing.JFrame {
     public Navegador() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        Google google = new Google();
+        jDesktopPaneBG.add(google);
+        
+        try {
+        
+            google.setMaximum(true);
+            jTextFieldPesquisa.setText("www.google.com.br");
+            google.setVisible(true);
+            
+        } catch (PropertyVetoException e) {
+            
+            JOptionPane.showMessageDialog(rootPane, "Erro");
+            
+        }
     }
 
     /**
@@ -37,6 +51,7 @@ public class Navegador extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanelBGAcimaDasAbas = new javax.swing.JPanel();
         jDesktopPaneBG = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
         jButtonVoltar = new javax.swing.JButton();
         jButtonAvancar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -46,18 +61,38 @@ public class Navegador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 424, Short.MAX_VALUE)
+        );
+
+        jDesktopPaneBG.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPaneBGLayout = new javax.swing.GroupLayout(jDesktopPaneBG);
         jDesktopPaneBG.setLayout(jDesktopPaneBGLayout);
         jDesktopPaneBGLayout.setHorizontalGroup(
             jDesktopPaneBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDesktopPaneBGLayout.setVerticalGroup(
             jDesktopPaneBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jButtonVoltar.setText("<-");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
 
         jButtonAvancar.setText("->");
 
@@ -94,7 +129,7 @@ public class Navegador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldPesquisa)
+                .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -103,14 +138,15 @@ public class Navegador extends javax.swing.JFrame {
             jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBGAcimaDasAbasLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonEnter)
-                    .addComponent(jButtonVoltar)
-                    .addComponent(jButtonAvancar)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jTextFieldPesquisa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonEnter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(jTextFieldPesquisa)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAvancar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPaneBG))
         );
 
@@ -209,6 +245,10 @@ public class Navegador extends javax.swing.JFrame {
             //        }
     }//GEN-LAST:event_jButtonEnterActionPerformed
 
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -252,6 +292,7 @@ public class Navegador extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEnter;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JDesktopPane jDesktopPaneBG;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBG;
     private javax.swing.JPanel jPanelBGAcimaDasAbas;
     private javax.swing.JTabbedPane jTabbedPane1;

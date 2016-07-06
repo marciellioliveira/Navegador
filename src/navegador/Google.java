@@ -5,6 +5,7 @@
  */
 package navegador;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 /**
@@ -18,6 +19,7 @@ public class Google extends javax.swing.JInternalFrame {
      */
     public Google() {
         initComponents();
+        
     }
 
      //   Abrir jInternalFrame Centralizado
@@ -36,39 +38,129 @@ public class Google extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jDesktopPaneBGGoogle = new javax.swing.JDesktopPane();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jPanelBGGoogle = new javax.swing.JPanel();
+        jLabelLogoGoogle = new javax.swing.JLabel();
+        jPanelBgPesquisaGoogle = new javax.swing.JPanel();
+        jTextFieldPesquisaGoogle = new javax.swing.JTextField();
+        jButtonPesquisaVoz = new javax.swing.JButton();
+        jPanelLadoEsquerdoPesquisa = new javax.swing.JPanel();
+        jPanelLadoDireitoPesquisa = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jDesktopPaneBGGoogle.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelBGGoogle.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Google");
+        jLabelLogoGoogle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabelLogoGoogle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelLogoGoogle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/google-logo.png"))); // NOI18N
 
-        jDesktopPaneBGGoogle.setLayer(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneBGGoogle.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jPanelBgPesquisaGoogle.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelBgPesquisaGoogle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jPanelBgPesquisaGoogle.setMaximumSize(new java.awt.Dimension(100, 100));
+        jPanelBgPesquisaGoogle.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPanelBgPesquisaGoogleAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        jTextFieldPesquisaGoogle.setBorder(null);
+
+        jButtonPesquisaVoz.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonPesquisaVoz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/pesquisa-voz.png"))); // NOI18N
+        jButtonPesquisaVoz.setBorder(null);
+        jButtonPesquisaVoz.setBorderPainted(false);
+        jButtonPesquisaVoz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisaVozActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelBgPesquisaGoogleLayout = new javax.swing.GroupLayout(jPanelBgPesquisaGoogle);
+        jPanelBgPesquisaGoogle.setLayout(jPanelBgPesquisaGoogleLayout);
+        jPanelBgPesquisaGoogleLayout.setHorizontalGroup(
+            jPanelBgPesquisaGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBgPesquisaGoogleLayout.createSequentialGroup()
+                .addComponent(jTextFieldPesquisaGoogle, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonPesquisaVoz, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+        );
+        jPanelBgPesquisaGoogleLayout.setVerticalGroup(
+            jPanelBgPesquisaGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBgPesquisaGoogleLayout.createSequentialGroup()
+                .addComponent(jTextFieldPesquisaGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jButtonPesquisaVoz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+        );
+
+        jPanelLadoEsquerdoPesquisa.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanelLadoEsquerdoPesquisaLayout = new javax.swing.GroupLayout(jPanelLadoEsquerdoPesquisa);
+        jPanelLadoEsquerdoPesquisa.setLayout(jPanelLadoEsquerdoPesquisaLayout);
+        jPanelLadoEsquerdoPesquisaLayout.setHorizontalGroup(
+            jPanelLadoEsquerdoPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+        );
+        jPanelLadoEsquerdoPesquisaLayout.setVerticalGroup(
+            jPanelLadoEsquerdoPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanelLadoDireitoPesquisa.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanelLadoDireitoPesquisaLayout = new javax.swing.GroupLayout(jPanelLadoDireitoPesquisa);
+        jPanelLadoDireitoPesquisa.setLayout(jPanelLadoDireitoPesquisaLayout);
+        jPanelLadoDireitoPesquisaLayout.setHorizontalGroup(
+            jPanelLadoDireitoPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 95, Short.MAX_VALUE)
+        );
+        jPanelLadoDireitoPesquisaLayout.setVerticalGroup(
+            jPanelLadoDireitoPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelBGGoogleLayout = new javax.swing.GroupLayout(jPanelBGGoogle);
+        jPanelBGGoogle.setLayout(jPanelBGGoogleLayout);
+        jPanelBGGoogleLayout.setHorizontalGroup(
+            jPanelBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBGGoogleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelLogoGoogle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelBGGoogleLayout.createSequentialGroup()
+                .addComponent(jPanelLadoEsquerdoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelBgPesquisaGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelLadoDireitoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelBGGoogleLayout.setVerticalGroup(
+            jPanelBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBGGoogleLayout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jLabelLogoGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelBgPesquisaGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelLadoEsquerdoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelLadoDireitoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
+
+        jDesktopPaneBGGoogle.setLayer(jPanelBGGoogle, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPaneBGGoogleLayout = new javax.swing.GroupLayout(jDesktopPaneBGGoogle);
         jDesktopPaneBGGoogle.setLayout(jDesktopPaneBGGoogleLayout);
         jDesktopPaneBGGoogleLayout.setHorizontalGroup(
             jDesktopPaneBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneBGGoogleLayout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addGroup(jDesktopPaneBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(147, 147, 147))
+            .addComponent(jPanelBGGoogle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDesktopPaneBGGoogleLayout.setVerticalGroup(
             jDesktopPaneBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPaneBGGoogleLayout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(197, Short.MAX_VALUE))
+            .addComponent(jPanelBGGoogle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -96,11 +188,24 @@ public class Google extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonPesquisaVozActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaVozActionPerformed
+        jButtonPesquisaVoz.setBorderPainted(false);
+    }//GEN-LAST:event_jButtonPesquisaVozActionPerformed
+
+    private void jPanelBgPesquisaGoogleAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanelBgPesquisaGoogleAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelBgPesquisaGoogleAncestorAdded
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonPesquisaVoz;
     private javax.swing.JDesktopPane jDesktopPaneBGGoogle;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelLogoGoogle;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel jPanelBGGoogle;
+    private javax.swing.JPanel jPanelBgPesquisaGoogle;
+    private javax.swing.JPanel jPanelLadoDireitoPesquisa;
+    private javax.swing.JPanel jPanelLadoEsquerdoPesquisa;
+    private javax.swing.JTextField jTextFieldPesquisaGoogle;
     // End of variables declaration//GEN-END:variables
 }
