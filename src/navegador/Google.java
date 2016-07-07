@@ -7,6 +7,9 @@ package navegador;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import javax.swing.JInternalFrame;
+import javax.swing.JRootPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
@@ -20,6 +23,8 @@ public class Google extends javax.swing.JInternalFrame {
     public Google() {
         initComponents();
         
+        this.removeTitleBar();
+        
     }
 
      //   Abrir jInternalFrame Centralizado
@@ -27,6 +32,15 @@ public class Google extends javax.swing.JInternalFrame {
     Dimension d = this.getDesktopPane().getSize();
     this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
     }
+    
+    public void removeTitleBar(){
+        putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+        getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        ((BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+        this.setBorder(null);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +59,12 @@ public class Google extends javax.swing.JInternalFrame {
         jButtonPesquisaVoz = new javax.swing.JButton();
         jPanelLadoEsquerdoPesquisa = new javax.swing.JPanel();
         jPanelLadoDireitoPesquisa = new javax.swing.JPanel();
+        jPanelBGIconesAcimaNaDireita = new javax.swing.JPanel();
+        jLabelPerfilGooglePlus = new javax.swing.JLabel();
+        jButtonNotificacaoDireitaSuperior = new javax.swing.JButton();
+        jButtonGoogleAppsDireitaSuperior = new javax.swing.JButton();
+        jButtonImagensDireitaSuperior = new javax.swing.JButton();
+        jButtonGmailDireitaSuperior = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,6 +88,11 @@ public class Google extends javax.swing.JInternalFrame {
         });
 
         jTextFieldPesquisaGoogle.setBorder(null);
+        jTextFieldPesquisaGoogle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPesquisaGoogleActionPerformed(evt);
+            }
+        });
 
         jButtonPesquisaVoz.setBackground(new java.awt.Color(255, 255, 255));
         jButtonPesquisaVoz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/pesquisa-voz.png"))); // NOI18N
@@ -102,7 +127,7 @@ public class Google extends javax.swing.JInternalFrame {
         jPanelLadoEsquerdoPesquisa.setLayout(jPanelLadoEsquerdoPesquisaLayout);
         jPanelLadoEsquerdoPesquisaLayout.setHorizontalGroup(
             jPanelLadoEsquerdoPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 88, Short.MAX_VALUE)
+            .addGap(0, 136, Short.MAX_VALUE)
         );
         jPanelLadoEsquerdoPesquisaLayout.setVerticalGroup(
             jPanelLadoEsquerdoPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,11 +140,92 @@ public class Google extends javax.swing.JInternalFrame {
         jPanelLadoDireitoPesquisa.setLayout(jPanelLadoDireitoPesquisaLayout);
         jPanelLadoDireitoPesquisaLayout.setHorizontalGroup(
             jPanelLadoDireitoPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 95, Short.MAX_VALUE)
+            .addGap(0, 142, Short.MAX_VALUE)
         );
         jPanelLadoDireitoPesquisaLayout.setVerticalGroup(
             jPanelLadoDireitoPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanelBGIconesAcimaNaDireita.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelPerfilGooglePlus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelPerfilGooglePlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/perfil-google-plus.png"))); // NOI18N
+
+        jButtonNotificacaoDireitaSuperior.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonNotificacaoDireitaSuperior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/notificacao-google.png"))); // NOI18N
+        jButtonNotificacaoDireitaSuperior.setBorder(null);
+        jButtonNotificacaoDireitaSuperior.setBorderPainted(false);
+        jButtonNotificacaoDireitaSuperior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNotificacaoDireitaSuperiorActionPerformed(evt);
+            }
+        });
+
+        jButtonGoogleAppsDireitaSuperior.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonGoogleAppsDireitaSuperior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/google-apps.png"))); // NOI18N
+        jButtonGoogleAppsDireitaSuperior.setBorder(null);
+        jButtonGoogleAppsDireitaSuperior.setBorderPainted(false);
+        jButtonGoogleAppsDireitaSuperior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonGoogleAppsDireitaSuperiorMouseClicked(evt);
+            }
+        });
+        jButtonGoogleAppsDireitaSuperior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGoogleAppsDireitaSuperiorActionPerformed(evt);
+            }
+        });
+
+        jButtonImagensDireitaSuperior.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonImagensDireitaSuperior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-imagens.png"))); // NOI18N
+        jButtonImagensDireitaSuperior.setBorder(null);
+        jButtonImagensDireitaSuperior.setBorderPainted(false);
+        jButtonImagensDireitaSuperior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonImagensDireitaSuperiorActionPerformed(evt);
+            }
+        });
+
+        jButtonGmailDireitaSuperior.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonGmailDireitaSuperior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-gmail.png"))); // NOI18N
+        jButtonGmailDireitaSuperior.setBorder(null);
+        jButtonGmailDireitaSuperior.setBorderPainted(false);
+        jButtonGmailDireitaSuperior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGmailDireitaSuperiorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelBGIconesAcimaNaDireitaLayout = new javax.swing.GroupLayout(jPanelBGIconesAcimaNaDireita);
+        jPanelBGIconesAcimaNaDireita.setLayout(jPanelBGIconesAcimaNaDireitaLayout);
+        jPanelBGIconesAcimaNaDireitaLayout.setHorizontalGroup(
+            jPanelBGIconesAcimaNaDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBGIconesAcimaNaDireitaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonGmailDireitaSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonImagensDireitaSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonGoogleAppsDireitaSuperior)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonNotificacaoDireitaSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelPerfilGooglePlus)
+                .addContainerGap())
+        );
+        jPanelBGIconesAcimaNaDireitaLayout.setVerticalGroup(
+            jPanelBGIconesAcimaNaDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelPerfilGooglePlus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelBGIconesAcimaNaDireitaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanelBGIconesAcimaNaDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonGoogleAppsDireitaSuperior)
+                    .addComponent(jButtonNotificacaoDireitaSuperior)
+                    .addGroup(jPanelBGIconesAcimaNaDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButtonGmailDireitaSuperior, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonImagensDireitaSuperior, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelBGGoogleLayout = new javax.swing.GroupLayout(jPanelBGGoogle);
@@ -129,25 +235,32 @@ public class Google extends javax.swing.JInternalFrame {
             .addGroup(jPanelBGGoogleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogoGoogle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelBGGoogleLayout.createSequentialGroup()
-                .addComponent(jPanelLadoEsquerdoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelBgPesquisaGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelLadoDireitoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBGGoogleLayout.createSequentialGroup()
+                .addGroup(jPanelBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelBGGoogleLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanelBGIconesAcimaNaDireita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelBGGoogleLayout.createSequentialGroup()
+                        .addComponent(jPanelLadoEsquerdoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelBgPesquisaGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelLadoDireitoPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelBGGoogleLayout.setVerticalGroup(
             jPanelBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBGGoogleLayout.createSequentialGroup()
-                .addGap(145, 145, 145)
+                .addContainerGap()
+                .addComponent(jPanelBGIconesAcimaNaDireita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addComponent(jLabelLogoGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelBGGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelBgPesquisaGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelLadoEsquerdoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelLadoDireitoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         jDesktopPaneBGGoogle.setLayer(jPanelBGGoogle, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -196,13 +309,44 @@ public class Google extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanelBgPesquisaGoogleAncestorAdded
 
+    private void jButtonNotificacaoDireitaSuperiorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotificacaoDireitaSuperiorActionPerformed
+        jButtonNotificacaoDireitaSuperior.setBorderPainted(false);
+        //só instanciar e chamar a tela como fiz nos outros na tela Navegador.java
+    }//GEN-LAST:event_jButtonNotificacaoDireitaSuperiorActionPerformed
+
+    private void jButtonGoogleAppsDireitaSuperiorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoogleAppsDireitaSuperiorActionPerformed
+        jButtonGoogleAppsDireitaSuperior.setBorderPainted(false);
+    }//GEN-LAST:event_jButtonGoogleAppsDireitaSuperiorActionPerformed
+
+    private void jButtonGoogleAppsDireitaSuperiorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGoogleAppsDireitaSuperiorMouseClicked
+        //só instanciar e chamar a tela como fiz nos outros na tela Navegador.java
+    }//GEN-LAST:event_jButtonGoogleAppsDireitaSuperiorMouseClicked
+
+    private void jButtonImagensDireitaSuperiorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImagensDireitaSuperiorActionPerformed
+        jButtonImagensDireitaSuperior.setBorderPainted(false);       
+    }//GEN-LAST:event_jButtonImagensDireitaSuperiorActionPerformed
+
+    private void jButtonGmailDireitaSuperiorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGmailDireitaSuperiorActionPerformed
+        jButtonGmailDireitaSuperior.setBorderPainted(false);
+    }//GEN-LAST:event_jButtonGmailDireitaSuperiorActionPerformed
+
+    private void jTextFieldPesquisaGoogleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaGoogleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPesquisaGoogleActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonGmailDireitaSuperior;
+    private javax.swing.JButton jButtonGoogleAppsDireitaSuperior;
+    private javax.swing.JButton jButtonImagensDireitaSuperior;
+    private javax.swing.JButton jButtonNotificacaoDireitaSuperior;
     private javax.swing.JButton jButtonPesquisaVoz;
     private javax.swing.JDesktopPane jDesktopPaneBGGoogle;
     private javax.swing.JLabel jLabelLogoGoogle;
+    private javax.swing.JLabel jLabelPerfilGooglePlus;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBGGoogle;
+    private javax.swing.JPanel jPanelBGIconesAcimaNaDireita;
     private javax.swing.JPanel jPanelBgPesquisaGoogle;
     private javax.swing.JPanel jPanelLadoDireitoPesquisa;
     private javax.swing.JPanel jPanelLadoEsquerdoPesquisa;

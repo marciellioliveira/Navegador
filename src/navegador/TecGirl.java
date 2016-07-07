@@ -6,6 +6,8 @@
 package navegador;
 
 import java.awt.Dimension;
+import javax.swing.JRootPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
@@ -18,12 +20,21 @@ public class TecGirl extends javax.swing.JInternalFrame {
      */
     public TecGirl() {
         initComponents();
+        
+        this.removeTitleBar();
     }
     
      //   Abrir jInternalFrame Centralizado
     public void setPosicao() {
     Dimension d = this.getDesktopPane().getSize();
     this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+    
+    public void removeTitleBar(){
+        putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+        getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        ((BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+        this.setBorder(null);
     }
 
     /**

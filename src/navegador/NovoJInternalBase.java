@@ -13,33 +13,14 @@ import javax.swing.JTextField;
  *
  * @author Marcielli
  */
-public class Navegador extends javax.swing.JFrame {
+public class NovoJInternalBase extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Teste
+     * Creates new form NovoJInternalBase
      */
-    public Navegador() {
+    public NovoJInternalBase() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
-        Google google = new Google();
-        jDesktopPaneBG.add(google);
-        
-        try {
-        
-            google.setMaximum(true);
-            jTextFieldPesquisa.setText("www.google.com.br");
-            google.setVisible(true);
-            
-        } catch (PropertyVetoException e) {
-            
-            JOptionPane.showMessageDialog(rootPane, "Erro");
-            
-        }
     }
-    
-    
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,10 +31,6 @@ public class Navegador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jPanelBG = new javax.swing.JPanel();
-        jTabbedPaneNovaGuia = new javax.swing.JTabbedPane();
         jPanelBGAcimaDasAbas = new javax.swing.JPanel();
         jDesktopPaneBG = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
@@ -63,20 +40,6 @@ public class Navegador extends javax.swing.JFrame {
         jButtonAvancar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -155,9 +118,8 @@ public class Navegador extends javax.swing.JFrame {
             .addGroup(jPanelBGAcimaDasAbasLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtonAvancar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jButtonAvancar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonVoltar)
                     .addComponent(jButtonEnter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
@@ -166,59 +128,31 @@ public class Navegador extends javax.swing.JFrame {
                 .addComponent(jDesktopPaneBG))
         );
 
-        jTabbedPaneNovaGuia.addTab("Nova Guia", jPanelBGAcimaDasAbas);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
-        );
-
-        jTabbedPaneNovaGuia.addTab("Nova Guia", jPanel3);
-
-        javax.swing.GroupLayout jPanelBGLayout = new javax.swing.GroupLayout(jPanelBG);
-        jPanelBG.setLayout(jPanelBGLayout);
-        jPanelBGLayout.setHorizontalGroup(
-            jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneNovaGuia)
-        );
-        jPanelBGLayout.setVerticalGroup(
-            jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneNovaGuia)
-        );
-
-        jTabbedPaneNovaGuia.getAccessibleContext().setAccessibleName("Nova Guia");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelBGAcimaDasAbas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelBGAcimaDasAbas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaActionPerformed
-        
+
         jButtonEnterActionPerformed(evt);
-       
+
     }//GEN-LAST:event_jTextFieldPesquisaActionPerformed
 
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
         //tentar deixar fazer login com o ping tb
-        
+
         if((jTextFieldPesquisa.getText().equals("www.facebook.com.br")) || (jTextFieldPesquisa.getText().equals("facebook.com.br")) || (jTextFieldPesquisa.getText().equals("31.13.85.36"))) {
-                
+
             Facebook obj1=new Facebook();
             jDesktopPaneBG.add(obj1);
             try{
@@ -228,7 +162,6 @@ public class Navegador extends javax.swing.JFrame {
             } catch (PropertyVetoException e) {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
-            
 
         } else if ((jTextFieldPesquisa.getText().equals("www.google.com.br")) || (jTextFieldPesquisa.getText().equals("google.com.br")) || (jTextFieldPesquisa.getText().equals("172.217.29.67"))) { //fazer || .com
 
@@ -277,44 +210,9 @@ public class Navegador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEnterActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-       
+
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Navegador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Navegador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Navegador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Navegador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Navegador().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
@@ -324,12 +222,7 @@ public class Navegador extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JDesktopPane jDesktopPaneBG;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanelBG;
     private javax.swing.JPanel jPanelBGAcimaDasAbas;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPaneNovaGuia;
     private javax.swing.JTextField jTextFieldPesquisa;
     // End of variables declaration//GEN-END:variables
 }
