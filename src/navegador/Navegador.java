@@ -6,7 +6,9 @@
 package navegador;
 
 import java.beans.PropertyVetoException;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 /**
@@ -14,6 +16,8 @@ import javax.swing.JTextField;
  * @author Marcielli
  */
 public class Navegador extends javax.swing.JFrame {
+    
+    public boolean index = false;
 
     /**
      * Creates new form Teste
@@ -21,26 +25,28 @@ public class Navegador extends javax.swing.JFrame {
     public Navegador() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
-        Google google = new Google();
-        jDesktopPaneBG.add(google);
         
-        try {
+        this.aplicarPaginaInicial();
         
-            google.setMaximum(true);
-            jTextFieldPesquisa.setText("www.google.com.br");
-            google.setVisible(true);
-            
-        } catch (PropertyVetoException e) {
-            
-            JOptionPane.showMessageDialog(rootPane, "Erro");
-            
-        }
     }
     
     
+    private void aplicarPaginaInicial() {
+        
+      //  Usar esse código para quando o usuario favoritar aparecer na tela pricipal a primeira pag
+        
+        Google google = new Google();
+        jDesktopPaneBG1.add(google);
+        try {
+            
+            google.setMaximum(true);            
+            google.setVisible(true);
+            
+        } catch (PropertyVetoException e) {
+            JOptionPane.showMessageDialog(rootPane, "Erro");
+        }
+    }
     
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,16 +60,8 @@ public class Navegador extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanelBG = new javax.swing.JPanel();
         jTabbedPaneNovaGuia = new javax.swing.JTabbedPane();
-        jPanelBGAcimaDasAbas = new javax.swing.JPanel();
-        jDesktopPaneBG = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
-        jTextFieldPesquisa = new javax.swing.JTextField();
-        jButtonEnter = new javax.swing.JButton();
-        jButtonVoltar = new javax.swing.JButton();
-        jButtonAvancar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jDesktopPaneBG1 = new javax.swing.JDesktopPane();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,105 +76,46 @@ public class Navegador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPaneNovaGuia.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTabbedPaneNovaGuiaAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jTabbedPaneNovaGuia.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPaneNovaGuiaStateChanged(evt);
+            }
+        });
+        jTabbedPaneNovaGuia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPaneNovaGuiaMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDesktopPaneBG1Layout = new javax.swing.GroupLayout(jDesktopPaneBG1);
+        jDesktopPaneBG1.setLayout(jDesktopPaneBG1Layout);
+        jDesktopPaneBG1Layout.setHorizontalGroup(
+            jDesktopPaneBG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 841, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+        jDesktopPaneBG1Layout.setVerticalGroup(
+            jDesktopPaneBG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 466, Short.MAX_VALUE)
         );
-
-        jDesktopPaneBG.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPaneBGLayout = new javax.swing.GroupLayout(jDesktopPaneBG);
-        jDesktopPaneBG.setLayout(jDesktopPaneBGLayout);
-        jDesktopPaneBGLayout.setHorizontalGroup(
-            jDesktopPaneBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jDesktopPaneBGLayout.setVerticalGroup(
-            jDesktopPaneBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jTextFieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPesquisaActionPerformed(evt);
-            }
-        });
-
-        jButtonEnter.setText(";)");
-        jButtonEnter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEnterActionPerformed(evt);
-            }
-        });
-
-        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaVoltar.png"))); // NOI18N
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
-            }
-        });
-
-        jButtonAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaSeguir.png"))); // NOI18N
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaRefresh.png"))); // NOI18N
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaHome.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanelBGAcimaDasAbasLayout = new javax.swing.GroupLayout(jPanelBGAcimaDasAbas);
-        jPanelBGAcimaDasAbas.setLayout(jPanelBGAcimaDasAbasLayout);
-        jPanelBGAcimaDasAbasLayout.setHorizontalGroup(
-            jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPaneBG)
-            .addGroup(jPanelBGAcimaDasAbasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldPesquisa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanelBGAcimaDasAbasLayout.setVerticalGroup(
-            jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBGAcimaDasAbasLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtonAvancar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jButtonEnter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jDesktopPaneBG))
-        );
-
-        jTabbedPaneNovaGuia.addTab("Nova Guia", jPanelBGAcimaDasAbas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addComponent(jDesktopPaneBG1)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
+            .addComponent(jDesktopPaneBG1)
         );
 
         jTabbedPaneNovaGuia.addTab("Nova Guia", jPanel3);
@@ -208,78 +147,36 @@ public class Navegador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaActionPerformed
+    private void jTabbedPaneNovaGuiaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTabbedPaneNovaGuiaAncestorAdded
         
-        jButtonEnterActionPerformed(evt);
+    }//GEN-LAST:event_jTabbedPaneNovaGuiaAncestorAdded
+
+    private void jTabbedPaneNovaGuiaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPaneNovaGuiaStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTabbedPaneNovaGuiaStateChanged
+
+    private void jTabbedPaneNovaGuiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPaneNovaGuiaMouseClicked
+        if(jTabbedPaneNovaGuia.getSelectedIndex() == 0) {
+        
+        //abrir nova tab do lado escrito nova guia e quando eu digitar o site o nova guia muda pro nome do site ex Facebook (talvez icone tb)
        
-    }//GEN-LAST:event_jTextFieldPesquisaActionPerformed
-
-    private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
-        //tentar deixar fazer login com o ping tb
-        
-        if((jTextFieldPesquisa.getText().equals("www.facebook.com.br")) || (jTextFieldPesquisa.getText().equals("facebook.com.br")) || (jTextFieldPesquisa.getText().equals("31.13.85.36"))) {
-                
-            Facebook obj1=new Facebook();
-            jDesktopPaneBG.add(obj1);
-            try{
-                obj1.setMaximum(true);
-                obj1.setVisible(true);
-                obj1.setPosicao();
-            } catch (PropertyVetoException e) {
-                JOptionPane.showMessageDialog(rootPane, e);
-            }
+        try {
+            JInternalFrameBGDesktopPane novojif = new JInternalFrameBGDesktopPane();
+            jDesktopPaneBG1.add(novojif);
             
-
-        } else if ((jTextFieldPesquisa.getText().equals("www.google.com.br")) || (jTextFieldPesquisa.getText().equals("google.com.br")) || (jTextFieldPesquisa.getText().equals("172.217.29.67"))) { //fazer || .com
-
-            Google obj2=new Google();
-            jDesktopPaneBG.add(obj2);
-            try{
-                obj2.setMaximum(true);
-                obj2.setVisible(true);
-                obj2.setPosicao();
-            } catch (PropertyVetoException e) {
-                JOptionPane.showMessageDialog(rootPane, e);
-            }
-
-        } else if (jTextFieldPesquisa.getText().equals("www.tecgirl.com.br") || jTextFieldPesquisa.getText().equals("tecgirl.com.br")) {
-
-            TecGirl obj3=new TecGirl();
-            jDesktopPaneBG.add(obj3);
-            try{
-                obj3.setMaximum(true);
-                obj3.setVisible(true);
-                obj3.setPosicao();
-            } catch (PropertyVetoException e) {
-                JOptionPane.showMessageDialog(rootPane, e);
-            }
-
-        } else if (jTextFieldPesquisa.getText().equals("www.fateccruzeiro.edu.br") || jTextFieldPesquisa.getText().equals("fateccruzeiro.edu.br")) {
-
-            FatecCruzeiro obj4=new FatecCruzeiro();
-            jDesktopPaneBG.add(obj4);
-            try{
-                obj4.setMaximum(true);
-                obj4.setVisible(true);
-                obj4.setPosicao();
-            } catch (PropertyVetoException e) {
-                JOptionPane.showMessageDialog(rootPane, e);
-            }
-
+            novojif.setMaximum(true);            
+            novojif.setVisible(true);
+            
+            
+        } catch (PropertyVetoException e) {
+            JOptionPane.showMessageDialog(rootPane, "Erro");
+        }
         }
 
-        //
-        //        else {
-            //
-            //            JOptionPane.showMessageDialog(rootPane, "Você errou o site. Digite www.facebook.com.br na barra de pesquisa");
-            //
-            //        }
-    }//GEN-LAST:event_jButtonEnterActionPerformed
+    }//GEN-LAST:event_jTabbedPaneNovaGuiaMouseClicked
 
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-       
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
-
+  
+    
     /**
      * @param args the command line arguments
      */
@@ -317,19 +214,11 @@ public class Navegador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButtonAvancar;
-    private javax.swing.JButton jButtonEnter;
-    private javax.swing.JButton jButtonVoltar;
-    private javax.swing.JDesktopPane jDesktopPaneBG;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JDesktopPane jDesktopPaneBG1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelBG;
-    private javax.swing.JPanel jPanelBGAcimaDasAbas;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneNovaGuia;
-    private javax.swing.JTextField jTextFieldPesquisa;
     // End of variables declaration//GEN-END:variables
 }

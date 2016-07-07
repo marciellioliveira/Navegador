@@ -5,23 +5,40 @@
  */
 package navegador;
 
+import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 import javax.swing.JOptionPane;
+import javax.swing.JRootPane;
 import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
  * @author Marcielli
  */
-public class NovoJInternalBase extends javax.swing.JInternalFrame {
+public class JInternalBase extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form NovoJInternalBase
      */
-    public NovoJInternalBase() {
+    public JInternalBase() {
         initComponents();
+        
+        this.removeTitleBar();
     }
 
+         //   Abrir jInternalFrame Centralizado
+    public void setPosicao() {
+    Dimension d = this.getDesktopPane().getSize();
+    this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
+    
+    public void removeTitleBar(){
+        putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
+        getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        ((BasicInternalFrameUI) this.getUI()).setNorthPane(null);
+        this.setBorder(null);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,11 +149,13 @@ public class NovoJInternalBase extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBGAcimaDasAbas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelBGAcimaDasAbas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBGAcimaDasAbas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelBGAcimaDasAbas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(4, 4, 4))
         );
 
         pack();
@@ -150,7 +169,7 @@ public class NovoJInternalBase extends javax.swing.JInternalFrame {
 
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
         //tentar deixar fazer login com o ping tb
-
+        
         if((jTextFieldPesquisa.getText().equals("www.facebook.com.br")) || (jTextFieldPesquisa.getText().equals("facebook.com.br")) || (jTextFieldPesquisa.getText().equals("31.13.85.36"))) {
 
             Facebook obj1=new Facebook();
@@ -159,6 +178,7 @@ public class NovoJInternalBase extends javax.swing.JInternalFrame {
                 obj1.setMaximum(true);
                 obj1.setVisible(true);
                 obj1.setPosicao();
+
             } catch (PropertyVetoException e) {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
@@ -171,6 +191,7 @@ public class NovoJInternalBase extends javax.swing.JInternalFrame {
                 obj2.setMaximum(true);
                 obj2.setVisible(true);
                 obj2.setPosicao();
+
             } catch (PropertyVetoException e) {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
@@ -183,6 +204,7 @@ public class NovoJInternalBase extends javax.swing.JInternalFrame {
                 obj3.setMaximum(true);
                 obj3.setVisible(true);
                 obj3.setPosicao();
+
             } catch (PropertyVetoException e) {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
@@ -195,6 +217,7 @@ public class NovoJInternalBase extends javax.swing.JInternalFrame {
                 obj4.setMaximum(true);
                 obj4.setVisible(true);
                 obj4.setPosicao();
+
             } catch (PropertyVetoException e) {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
@@ -207,6 +230,7 @@ public class NovoJInternalBase extends javax.swing.JInternalFrame {
             //            JOptionPane.showMessageDialog(rootPane, "Você errou o site. Digite www.facebook.com.br na barra de pesquisa");
             //
             //        }
+        
     }//GEN-LAST:event_jButtonEnterActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
