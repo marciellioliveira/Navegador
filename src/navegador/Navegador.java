@@ -34,13 +34,14 @@ public class Navegador extends javax.swing.JFrame {
     private void aplicarPaginaInicial() {
         
       //  Usar esse código para quando o usuario favoritar aparecer na tela pricipal a primeira pag
+      
         
-        Google google = new Google();
-        jDesktopPaneBG1.add(google);
+        JInternalBase internalBase = new JInternalBase();
+        jDesktopPaneBG1.add(internalBase);
         try {
             
-            google.setMaximum(true);            
-            google.setVisible(true);
+            internalBase.setMaximum(true);            
+            internalBase.setVisible(true);
             
         } catch (PropertyVetoException e) {
             JOptionPane.showMessageDialog(rootPane, "Erro");
@@ -161,6 +162,7 @@ public class Navegador extends javax.swing.JFrame {
         //abrir nova tab do lado escrito nova guia e quando eu digitar o site o nova guia muda pro nome do site ex Facebook (talvez icone tb)
        
         try {
+            
             JInternalFrameBGDesktopPane novojif = new JInternalFrameBGDesktopPane();
             jDesktopPaneBG1.add(novojif);
             
@@ -175,6 +177,7 @@ public class Navegador extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTabbedPaneNovaGuiaMouseClicked
 
+    
   
     
     /**

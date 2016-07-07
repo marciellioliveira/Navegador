@@ -21,10 +21,18 @@ public class JInternalBase extends javax.swing.JInternalFrame {
     /**
      * Creates new form NovoJInternalBase
      */
-    public JInternalBase() {
+    public JInternalBase() throws PropertyVetoException {
         initComponents();
         
         this.removeTitleBar();
+        
+        Google google = new Google();
+        jDesktopPaneBG.add(google);
+        google.setMaximum(true);
+        google.setVisible(true);
+        google.setPosicao();
+        
+        
     }
 
          //   Abrir jInternalFrame Centralizado
