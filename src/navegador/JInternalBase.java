@@ -5,8 +5,14 @@
  */
 package navegador;
 
+import paginas.TecGirl;
+import paginas.FatecCruzeiro;
+import paginas.Facebook;
+import paginas.Google;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 import javax.swing.JTextField;

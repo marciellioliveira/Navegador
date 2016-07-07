@@ -34,12 +34,10 @@ public class Navegador extends javax.swing.JFrame {
     private void aplicarPaginaInicial() {
         
       //  Usar esse código para quando o usuario favoritar aparecer na tela pricipal a primeira pag
-      
-        
-        JInternalBase internalBase = new JInternalBase();
-        jDesktopPaneBG1.add(internalBase);
+
         try {
-            
+            JInternalBase internalBase = new JInternalBase();
+            jDesktopPaneBG1.add(internalBase);            
             internalBase.setMaximum(true);            
             internalBase.setVisible(true);
             

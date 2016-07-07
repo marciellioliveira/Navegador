@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package navegador;
+package paginas;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -111,14 +111,14 @@ public class Google extends javax.swing.JInternalFrame {
             .addGroup(jPanelBgPesquisaGoogleLayout.createSequentialGroup()
                 .addComponent(jTextFieldPesquisaGoogle, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonPesquisaVoz, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                .addComponent(jButtonPesquisaVoz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBgPesquisaGoogleLayout.setVerticalGroup(
             jPanelBgPesquisaGoogleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBgPesquisaGoogleLayout.createSequentialGroup()
                 .addComponent(jTextFieldPesquisaGoogle, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jButtonPesquisaVoz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+            .addComponent(jButtonPesquisaVoz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanelLadoEsquerdoPesquisa.setBackground(new java.awt.Color(255, 255, 255));

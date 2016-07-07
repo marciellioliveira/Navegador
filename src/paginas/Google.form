@@ -152,7 +152,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jTextFieldPesquisaGoogle" pref="584" max="32767" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButtonPesquisaVoz" pref="35" max="32767" attributes="0"/>
+                              <Component id="jButtonPesquisaVoz" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -162,7 +162,7 @@
                               <Component id="jTextFieldPesquisaGoogle" min="-2" pref="33" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jButtonPesquisaVoz" alignment="1" pref="35" max="32767" attributes="0"/>
+                          <Component id="jButtonPesquisaVoz" alignment="1" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
