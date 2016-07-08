@@ -6,6 +6,8 @@
 package navegador;
 
 import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -24,9 +26,11 @@ public class Navegador extends javax.swing.JFrame {
      */
     public Navegador() {
         initComponents();
+        
         setExtendedState(MAXIMIZED_BOTH);
         
         this.aplicarPaginaInicial();
+ 
         
     }
     
@@ -34,16 +38,35 @@ public class Navegador extends javax.swing.JFrame {
     private void aplicarPaginaInicial() {
         
       //  Usar esse código para quando o usuario favoritar aparecer na tela pricipal a primeira pag
-
+      
+      
         try {
             JInternalBase internalBase = new JInternalBase();
             jDesktopPaneBG1.add(internalBase);            
             internalBase.setMaximum(true);            
             internalBase.setVisible(true);
-            
+                        
         } catch (PropertyVetoException e) {
             JOptionPane.showMessageDialog(rootPane, "Erro");
         }
+          
+    }
+    
+    //Tentativa de mudar o titulo do JTabbed quando eu digitar um site
+    private void mudarTituloTabbed() {
+        
+               JTabbedPane tabbed = new JTabbedPane();
+        try {
+            JInternalFrameBGDesktopPane internal = new JInternalFrameBGDesktopPane();
+            String pAtual = internal.paginaAtualPesquisa;
+            
+            tabbed.add(pAtual, rootPane);
+            
+            
+        } catch (PropertyVetoException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex);
+        }
+        
     }
     
     /**
@@ -61,6 +84,7 @@ public class Navegador extends javax.swing.JFrame {
         jTabbedPaneNovaGuia = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jDesktopPaneBG1 = new javax.swing.JDesktopPane();
+        jPanelFundoNovaGuia = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,15 +119,30 @@ public class Navegador extends javax.swing.JFrame {
             }
         });
 
+        jPanelFundoNovaGuia.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanelFundoNovaGuiaLayout = new javax.swing.GroupLayout(jPanelFundoNovaGuia);
+        jPanelFundoNovaGuia.setLayout(jPanelFundoNovaGuiaLayout);
+        jPanelFundoNovaGuiaLayout.setHorizontalGroup(
+            jPanelFundoNovaGuiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 841, Short.MAX_VALUE)
+        );
+        jPanelFundoNovaGuiaLayout.setVerticalGroup(
+            jPanelFundoNovaGuiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 466, Short.MAX_VALUE)
+        );
+
+        jDesktopPaneBG1.setLayer(jPanelFundoNovaGuia, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPaneBG1Layout = new javax.swing.GroupLayout(jDesktopPaneBG1);
         jDesktopPaneBG1.setLayout(jDesktopPaneBG1Layout);
         jDesktopPaneBG1Layout.setHorizontalGroup(
             jDesktopPaneBG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addComponent(jPanelFundoNovaGuia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDesktopPaneBG1Layout.setVerticalGroup(
             jDesktopPaneBG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
+            .addComponent(jPanelFundoNovaGuia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -156,16 +195,16 @@ public class Navegador extends javax.swing.JFrame {
 
     private void jTabbedPaneNovaGuiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPaneNovaGuiaMouseClicked
         if(jTabbedPaneNovaGuia.getSelectedIndex() == 0) {
-        
+            
         //abrir nova tab do lado escrito nova guia e quando eu digitar o site o nova guia muda pro nome do site ex Facebook (talvez icone tb)
        
         try {
             
             JInternalFrameBGDesktopPane novojif = new JInternalFrameBGDesktopPane();
             jDesktopPaneBG1.add(novojif);
-            
+            //Abre o JInternalFrameBGDesktopPane para dps abrir as outras páginas
             novojif.setMaximum(true);            
-            novojif.setVisible(true);
+            novojif.setVisible(true);            
             
             
         } catch (PropertyVetoException e) {
@@ -219,6 +258,7 @@ public class Navegador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelBG;
+    private javax.swing.JPanel jPanelFundoNovaGuia;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPaneNovaGuia;
     // End of variables declaration//GEN-END:variables

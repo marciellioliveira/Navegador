@@ -17,6 +17,8 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class JInternalFrameBGDesktopPane extends javax.swing.JInternalFrame {
 
+    public String paginaAtualPesquisa;
+    
     /**
      * Creates new form JInternalFrameBGDesktopPane
      */
@@ -29,8 +31,11 @@ public class JInternalFrameBGDesktopPane extends javax.swing.JInternalFrame {
         jDesktopPane1.add(jib);
         jib.setMaximum(true);
         jib.setVisible(true);
+        paginaAtualPesquisa = jib.getPaginaAtual(title);
         
-        }
+        
+    
+    }
     
          //   Abrir jInternalFrame Centralizado
     public void setPosicao() {
@@ -56,6 +61,7 @@ public class JInternalFrameBGDesktopPane extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jPanelFundoInternalFeDeskPane = new javax.swing.JPanel();
 
         setMaximizable(true);
 
@@ -69,15 +75,30 @@ public class JInternalFrameBGDesktopPane extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanelFundoInternalFeDeskPane.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanelFundoInternalFeDeskPaneLayout = new javax.swing.GroupLayout(jPanelFundoInternalFeDeskPane);
+        jPanelFundoInternalFeDeskPane.setLayout(jPanelFundoInternalFeDeskPaneLayout);
+        jPanelFundoInternalFeDeskPaneLayout.setHorizontalGroup(
+            jPanelFundoInternalFeDeskPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 839, Short.MAX_VALUE)
+        );
+        jPanelFundoInternalFeDeskPaneLayout.setVerticalGroup(
+            jPanelFundoInternalFeDeskPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 482, Short.MAX_VALUE)
+        );
+
+        jDesktopPane1.setLayer(jPanelFundoInternalFeDeskPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 839, Short.MAX_VALUE)
+            .addComponent(jPanelFundoInternalFeDeskPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addComponent(jPanelFundoInternalFeDeskPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -88,9 +109,7 @@ public class JInternalFrameBGDesktopPane extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+            .addComponent(jDesktopPane1)
         );
 
         setBounds(0, 0, 855, 511);
@@ -104,5 +123,6 @@ public class JInternalFrameBGDesktopPane extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JPanel jPanelFundoInternalFeDeskPane;
     // End of variables declaration//GEN-END:variables
 }

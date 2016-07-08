@@ -5,6 +5,7 @@
  */
 package navegador;
 
+import configuracao.ConfiguracaoPrincipal;
 import paginas.TecGirl;
 import paginas.FatecCruzeiro;
 import paginas.Facebook;
@@ -15,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
-import javax.swing.JTextField;
+import javax.swing.JTabbedPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -24,6 +25,8 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class JInternalBase extends javax.swing.JInternalFrame {
 
+    public String pesquisa;
+ 
     /**
      * Creates new form NovoJInternalBase
      */
@@ -31,14 +34,14 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         initComponents();
         
         this.removeTitleBar();
-        
-        Google google = new Google();
-        jDesktopPaneBG.add(google);
-        google.setMaximum(true);
-        google.setVisible(true);
-        google.setPosicao();
-        
-        
+//        
+//        Google google = new Google();
+//        jDesktopPaneBG.add(google);
+//        google.setMaximum(true);
+//        google.setVisible(true);
+//        google.setPosicao();
+
+
     }
 
          //   Abrir jInternalFrame Centralizado
@@ -53,6 +56,10 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         ((BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         this.setBorder(null);
     }
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,8 +76,11 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         jButtonEnter = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
         jButtonAvancar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonAtualizar = new javax.swing.JButton();
+        jButtonInicio = new javax.swing.JButton();
+        jButtonConfiguracao = new javax.swing.JButton();
+
+        jPanelBGAcimaDasAbas.setBackground(new java.awt.Color(153, 204, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -78,11 +88,11 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGap(0, 425, Short.MAX_VALUE)
         );
 
         jDesktopPaneBG.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -98,6 +108,7 @@ public class JInternalBase extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jTextFieldPesquisa.setText("tecgirl.com.br");
         jTextFieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPesquisaActionPerformed(evt);
@@ -120,41 +131,63 @@ public class JInternalBase extends javax.swing.JInternalFrame {
 
         jButtonAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaSeguir.png"))); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaRefresh.png"))); // NOI18N
+        jButtonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaRefresh.png"))); // NOI18N
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaHome.png"))); // NOI18N
+        jButtonInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaHome.png"))); // NOI18N
+        jButtonInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInicioActionPerformed(evt);
+            }
+        });
+
+        jButtonConfiguracao.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonConfiguracao.setText("...");
+        jButtonConfiguracao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonConfiguracaoMouseClicked(evt);
+            }
+        });
+        jButtonConfiguracao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfiguracaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelBGAcimaDasAbasLayout = new javax.swing.GroupLayout(jPanelBGAcimaDasAbas);
         jPanelBGAcimaDasAbas.setLayout(jPanelBGAcimaDasAbasLayout);
         jPanelBGAcimaDasAbasLayout.setHorizontalGroup(
             jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jDesktopPaneBG)
-            .addGroup(jPanelBGAcimaDasAbasLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBGAcimaDasAbasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldPesquisa)
+                .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanelBGAcimaDasAbasLayout.setVerticalGroup(
             jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBGAcimaDasAbasLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonAvancar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonVoltar)
-                    .addComponent(jButtonEnter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(jButtonAvancar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldPesquisa)
+                        .addComponent(jButtonEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAtualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jDesktopPaneBG))
         );
@@ -186,19 +219,27 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         
         if((jTextFieldPesquisa.getText().equals("www.facebook.com.br")) || (jTextFieldPesquisa.getText().equals("facebook.com.br")) || (jTextFieldPesquisa.getText().equals("31.13.85.36"))) {
 
+            
+        JTabbedPane tabbedPane = new JTabbedPane();       
+        System.out.println("Facebook: "+tabbedPane.getSelectedIndex());
+   
+            
             Facebook obj1=new Facebook();
             jDesktopPaneBG.add(obj1);
             try{
                 obj1.setMaximum(true);
                 obj1.setVisible(true);
                 obj1.setPosicao();
-
+                
             } catch (PropertyVetoException e) {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
 
         } else if ((jTextFieldPesquisa.getText().equals("www.google.com.br")) || (jTextFieldPesquisa.getText().equals("google.com.br")) || (jTextFieldPesquisa.getText().equals("172.217.29.67"))) { //fazer || .com
-
+            
+        JTabbedPane tabbedPane = new JTabbedPane();       
+        System.out.println("Google: "+tabbedPane.getSelectedIndex());
+        
             Google obj2=new Google();
             jDesktopPaneBG.add(obj2);
             try{
@@ -206,25 +247,35 @@ public class JInternalBase extends javax.swing.JInternalFrame {
                 obj2.setVisible(true);
                 obj2.setPosicao();
 
+                
+                
             } catch (PropertyVetoException e) {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
 
         } else if (jTextFieldPesquisa.getText().equals("www.tecgirl.com.br") || jTextFieldPesquisa.getText().equals("tecgirl.com.br")) {
-
+            
+        JTabbedPane tabbedPane = new JTabbedPane();       
+        System.out.println("TecGirl: "+tabbedPane.getSelectedIndex());
+        
             TecGirl obj3=new TecGirl();
             jDesktopPaneBG.add(obj3);
             try{
                 obj3.setMaximum(true);
                 obj3.setVisible(true);
                 obj3.setPosicao();
+                
+                
 
             } catch (PropertyVetoException e) {
                 JOptionPane.showMessageDialog(rootPane, e);
             }
 
         } else if (jTextFieldPesquisa.getText().equals("www.fateccruzeiro.edu.br") || jTextFieldPesquisa.getText().equals("fateccruzeiro.edu.br")) {
-
+                        
+        JTabbedPane tabbedPane = new JTabbedPane();       
+        System.out.println("FatecCruzeiro: "+tabbedPane.getSelectedIndex());
+        
             FatecCruzeiro obj4=new FatecCruzeiro();
             jDesktopPaneBG.add(obj4);
             try{
@@ -247,16 +298,70 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButtonEnterActionPerformed
 
+    public void setPaginaAtual() {
+        
+       pesquisa = jTextFieldPesquisa.getText();
+       // System.out.println(" "+pesquisa);
+        
+    }
+    
+    public String getPaginaAtual(String pes) {
+    
+        pes = pesquisa;
+        
+        return pes;
+        
+    }
+    
+    
+    public void fecharFacebook() {
+     
+        Facebook facebook = new Facebook();
+        
+        facebook.dispose();
+        
+    }
+    
+    
+    
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
 
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
+    private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
+     
+    
+    }//GEN-LAST:event_jButtonInicioActionPerformed
+
+    private void jButtonConfiguracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfiguracaoActionPerformed
+              
+        ConfiguracaoPrincipal config1 = new ConfiguracaoPrincipal();
+        
+        try {        
+        jDesktopPaneBG.add(config1);
+        config1.setVisible(true);
+        config1.setPosicao();
+        config1.setMaximum(true);
+        
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(JInternalBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButtonConfiguracaoActionPerformed
+
+    private void jButtonConfiguracaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfiguracaoMouseClicked
+       
+    }//GEN-LAST:event_jButtonConfiguracaoMouseClicked
+
+ 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonAvancar;
+    private javax.swing.JButton jButtonConfiguracao;
     private javax.swing.JButton jButtonEnter;
+    private javax.swing.JButton jButtonInicio;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JDesktopPane jDesktopPaneBG;
     private javax.swing.JPanel jPanel1;
