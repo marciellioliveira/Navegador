@@ -72,15 +72,19 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         jPanelBGAcimaDasAbas = new javax.swing.JPanel();
         jDesktopPaneBG = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
-        jTextFieldPesquisa = new javax.swing.JTextField();
-        jButtonEnter = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
         jButtonAvancar = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
         jButtonInicio = new javax.swing.JButton();
         jButtonConfiguracao = new javax.swing.JButton();
+        jPanelBG = new javax.swing.JPanel();
+        jTextFieldPesquisa = new javax.swing.JTextField();
+        jLabelIconPesquisa = new javax.swing.JLabel();
+        jLabelIconEstrela = new javax.swing.JLabel();
+        jButtonEnter = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
-        jPanelBGAcimaDasAbas.setBackground(new java.awt.Color(153, 204, 255));
+        jPanelBGAcimaDasAbas.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -88,11 +92,11 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 841, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
+            .addGap(0, 462, Short.MAX_VALUE)
         );
 
         jDesktopPaneBG.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -108,40 +112,46 @@ public class JInternalBase extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTextFieldPesquisa.setText("tecgirl.com.br");
-        jTextFieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPesquisaActionPerformed(evt);
-            }
-        });
-
-        jButtonEnter.setText(";)");
-        jButtonEnter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEnterActionPerformed(evt);
-            }
-        });
-
+        jButtonVoltar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaVoltar.png"))); // NOI18N
+        jButtonVoltar.setBorder(null);
+        jButtonVoltar.setBorderPainted(false);
+        jButtonVoltar.setContentAreaFilled(false);
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVoltarActionPerformed(evt);
             }
         });
 
+        jButtonAvancar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaSeguir.png"))); // NOI18N
+        jButtonAvancar.setBorder(null);
+        jButtonAvancar.setBorderPainted(false);
+        jButtonAvancar.setContentAreaFilled(false);
 
+        jButtonAtualizar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaRefresh.png"))); // NOI18N
+        jButtonAtualizar.setBorder(null);
+        jButtonAtualizar.setBorderPainted(false);
+        jButtonAtualizar.setContentAreaFilled(false);
 
+        jButtonInicio.setBackground(new java.awt.Color(255, 255, 255));
         jButtonInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Google/btn-setaHome.png"))); // NOI18N
+        jButtonInicio.setBorder(null);
+        jButtonInicio.setBorderPainted(false);
+        jButtonInicio.setContentAreaFilled(false);
         jButtonInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInicioActionPerformed(evt);
             }
         });
 
+        jButtonConfiguracao.setBackground(new java.awt.Color(255, 255, 255));
         jButtonConfiguracao.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonConfiguracao.setText("...");
+        jButtonConfiguracao.setBorder(null);
+        jButtonConfiguracao.setBorderPainted(false);
+        jButtonConfiguracao.setContentAreaFilled(false);
         jButtonConfiguracao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonConfiguracaoMouseClicked(evt);
@@ -152,6 +162,55 @@ public class JInternalBase extends javax.swing.JInternalFrame {
                 jButtonConfiguracaoActionPerformed(evt);
             }
         });
+
+        jPanelBG.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelBG.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+
+        jTextFieldPesquisa.setText("tecgirl.com.br");
+        jTextFieldPesquisa.setBorder(null);
+        jTextFieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPesquisaActionPerformed(evt);
+            }
+        });
+
+        jLabelIconPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/BarraPesquisa/pesquisa.png"))); // NOI18N
+
+        jLabelIconEstrela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/BarraPesquisa/estrela.png"))); // NOI18N
+
+        jButtonEnter.setBackground(new java.awt.Color(153, 204, 255));
+        jButtonEnter.setBorder(null);
+        jButtonEnter.setBorderPainted(false);
+        jButtonEnter.setContentAreaFilled(false);
+        jButtonEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEnterActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelBGLayout = new javax.swing.GroupLayout(jPanelBG);
+        jPanelBG.setLayout(jPanelBGLayout);
+        jPanelBGLayout.setHorizontalGroup(
+            jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBGLayout.createSequentialGroup()
+                .addComponent(jLabelIconPesquisa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldPesquisa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelIconEstrela))
+        );
+        jPanelBGLayout.setVerticalGroup(
+            jPanelBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelIconPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelIconEstrela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButtonEnter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBGLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanelBGAcimaDasAbasLayout = new javax.swing.GroupLayout(jPanelBGAcimaDasAbas);
         jPanelBGAcimaDasAbas.setLayout(jPanelBGAcimaDasAbasLayout);
@@ -165,30 +224,32 @@ public class JInternalBase extends javax.swing.JInternalFrame {
                 .addComponent(jButtonAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
+                .addComponent(jPanelBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addComponent(jSeparator1)
         );
         jPanelBGAcimaDasAbasLayout.setVerticalGroup(
             jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBGAcimaDasAbasLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(jButtonAvancar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldPesquisa)
-                        .addComponent(jButtonEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
-                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAtualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButtonAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelBGAcimaDasAbasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanelBG, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPaneBG))
         );
 
@@ -200,22 +261,73 @@ public class JInternalBase extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelBGAcimaDasAbas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(4, 4, 4))
+            .addComponent(jPanelBGAcimaDasAbas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setPaginaAtual() {
+        
+       pesquisa = jTextFieldPesquisa.getText();
+       // System.out.println(" "+pesquisa);
+        
+    }
+    
+    public String getPaginaAtual(String pes) {
+    
+        pes = pesquisa;
+        
+        return pes;
+        
+    }
+    
+    
+    public void fecharFacebook() {
+     
+        Facebook facebook = new Facebook();
+        
+        facebook.dispose();
+        
+    }
+    
+    
+    
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
+     
+    
+    }//GEN-LAST:event_jButtonInicioActionPerformed
+
+    private void jButtonConfiguracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfiguracaoActionPerformed
+              
+        ConfiguracaoPrincipal config1 = new ConfiguracaoPrincipal();
+        
+        try {        
+        jDesktopPaneBG.add(config1);
+        config1.setVisible(true);
+        config1.setPosicao();
+        config1.setMaximum(true);
+        
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(JInternalBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButtonConfiguracaoActionPerformed
+
+    private void jButtonConfiguracaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfiguracaoMouseClicked
+       
+    }//GEN-LAST:event_jButtonConfiguracaoMouseClicked
+
     private void jTextFieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaActionPerformed
-
         jButtonEnterActionPerformed(evt);
-
     }//GEN-LAST:event_jTextFieldPesquisaActionPerformed
 
     private void jButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterActionPerformed
-        //tentar deixar fazer login com o ping tb
+      //tentar deixar fazer login com o ping tb
         
         if((jTextFieldPesquisa.getText().equals("www.facebook.com.br")) || (jTextFieldPesquisa.getText().equals("facebook.com.br")) || (jTextFieldPesquisa.getText().equals("31.13.85.36"))) {
 
@@ -295,63 +407,7 @@ public class JInternalBase extends javax.swing.JInternalFrame {
             //            JOptionPane.showMessageDialog(rootPane, "Você errou o site. Digite www.facebook.com.br na barra de pesquisa");
             //
             //        }
-        
     }//GEN-LAST:event_jButtonEnterActionPerformed
-
-    public void setPaginaAtual() {
-        
-       pesquisa = jTextFieldPesquisa.getText();
-       // System.out.println(" "+pesquisa);
-        
-    }
-    
-    public String getPaginaAtual(String pes) {
-    
-        pes = pesquisa;
-        
-        return pes;
-        
-    }
-    
-    
-    public void fecharFacebook() {
-     
-        Facebook facebook = new Facebook();
-        
-        facebook.dispose();
-        
-    }
-    
-    
-    
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
-
-    private void jButtonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInicioActionPerformed
-     
-    
-    }//GEN-LAST:event_jButtonInicioActionPerformed
-
-    private void jButtonConfiguracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfiguracaoActionPerformed
-              
-        ConfiguracaoPrincipal config1 = new ConfiguracaoPrincipal();
-        
-        try {        
-        jDesktopPaneBG.add(config1);
-        config1.setVisible(true);
-        config1.setPosicao();
-        config1.setMaximum(true);
-        
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(JInternalBase.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_jButtonConfiguracaoActionPerformed
-
-    private void jButtonConfiguracaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConfiguracaoMouseClicked
-       
-    }//GEN-LAST:event_jButtonConfiguracaoMouseClicked
 
  
     
@@ -364,8 +420,12 @@ public class JInternalBase extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonInicio;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JDesktopPane jDesktopPaneBG;
+    private javax.swing.JLabel jLabelIconEstrela;
+    private javax.swing.JLabel jLabelIconPesquisa;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelBG;
     private javax.swing.JPanel jPanelBGAcimaDasAbas;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldPesquisa;
     // End of variables declaration//GEN-END:variables
 }
